@@ -1,7 +1,8 @@
 // 프로퍼티 수정, 추가, 삭제
-var dog = {
-  name: '뽀삐'
+const dog = {
+  name: '뽀삐',
 };
+
 console.log(dog);
 
 dog.name = '두부';     // 이미 존재하는 프로퍼티에 값을 할당하면 값이 갱신된다.

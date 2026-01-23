@@ -22,14 +22,15 @@ console.log(false && 'banana');
 
 
 /* 객체를 가리키기를 기대하는 변수가 null 또는 undefined인지 확인하고
-* null 또는 undefined (Falsy)로 판단되면 
-* 객체의 속성(프로퍼티) 참조를 막아서 에러를 예방
-* */
-var obj = null;
+ * null 또는 undefined (Falsy)로 판단되면
+ * 객체의 속성(프로퍼티) 참조를 막아서 에러를 예방
+ * */
+const obj = null;
 
 //  Cannot read properties of null (reading 'value')
 // var temp = obj.value;
-var temp = obj && obj.value;
+const temp = obj && obj.value;
+
 
 console.log(temp); // null
 

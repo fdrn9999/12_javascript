@@ -5,11 +5,12 @@
 * 프로퍼티 값: 자바스크립트에서 사용할 수 있는 모든 값
 * */
 
-var obj = {
-    normal : 'normal value',
-    '@ s p a c e @' : 'space value', // 특수문자 또는 띄어쓰기가 있으면 '' 붙이기
-    0 : 1, // 0(number) -> '0'(string) 자동 변환
-    var : 'var', // 예약어를 Key로 사용할 수는 있지만 권장 X
-    normal : "new value" // Key 중복 시 나중에 작성한 값으로 덮어쓰기함.
+const obj = {
+  normal: 'normal value',
+  '@ s p a c e @': 'space value', // 특수문자 또는 띄어쓰기가 있으면 '' 붙이기
+  0: 1, // 0(number) -> '0'(string) 자동 변환
+  var: 'var', // 예약어를 Key로 사용할 수는 있지만 권장 X
+  normal: 'new value', // Key 중복 시 나중에 작성한 값으로 덮어쓰기함.
 };
+
 console.log(obj);

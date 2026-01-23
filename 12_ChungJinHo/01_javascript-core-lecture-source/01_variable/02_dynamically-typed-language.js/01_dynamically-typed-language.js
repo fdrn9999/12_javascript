@@ -4,7 +4,7 @@
  * - 변수에 값이 재할당될 때마다 타입이 다시 결정된다.
  * */
 
-var test;
+let test;
 console.log(test, typeof test); // undefined undefined
 test = 1;
 console.log(test, typeof test); // 1 number
@@ -27,5 +27,6 @@ console.log(test, typeof test); // {} object
 test = [];
 console.log(test, typeof test); // [] object
 
-test = function() {};
+test = function () {};
 console.log(test, typeof test); // [Function: test]  function function은 object의 한 종류
+

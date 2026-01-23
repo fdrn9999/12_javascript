@@ -34,7 +34,8 @@ console.log(+undefined); // NaN
 console.log(+{}); // NaN
 console.log(+[10]); // 10
 console.log(+[10, 20]); // NaN
-console.log(+function() {var a = 1;}); // NaN
+console.log(+function () { var a = 1; }); // NaN
+
 
 /* 기억할 것
  * 1) 빈 문자열, 빈 배열, null, false -> 0

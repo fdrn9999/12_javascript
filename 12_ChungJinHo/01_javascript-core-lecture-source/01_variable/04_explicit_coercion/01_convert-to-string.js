@@ -16,12 +16,12 @@ console.log(String(function(){}), typeof String(function(){}));
 // 2. toString() 메소드 사용
 console.log((123).toString(), typeof (123).toString());
 console.log((true).toString(), typeof (true).toString());
-console.log((null).toString(), typeof (null).toString());
-console.log((undefined).toString(), typeof (undefined).toString());
+// console.log((null).toString(), typeof (null).toString()); // TypeError
+// console.log((undefined).toString(), typeof (undefined).toString()); // TypeError
 console.log((NaN).toString(), typeof (NaN).toString());
 console.log((Infinity).toString(), typeof (Infinity).toString());
 console.log((-Infinity).toString(), typeof (-Infinity).toString());
-console.log((Symbol()).toString(), typeof (Symbol()).toString());
+console.log(Symbol('a').toString(), typeof Symbol('a').toString());
 console.log(({}).toString(), typeof ({}).toString());
 console.log(([]).toString(), typeof ([]).toString());
-console.log((function(){}).toString(), typeof (function(){}).toString());
+console.log((function () {}).toString(), typeof (function () {}).toString());

@@ -40,5 +40,4 @@ console.log(undefined * 1, typeof (undefined * 1));
 console.log(NaN * 1, typeof (NaN * 1));
 console.log(Infinity * 1, typeof (Infinity * 1));
 console.log(-Infinity * 1, typeof (-Infinity * 1));
-
-// 
+ 

@@ -3,18 +3,17 @@
 * - 좌항이 Truthy한 경우 우항을 반환
 * */
 var obj = null;
-var val = obj?.value;
+let val = obj?.value;
 console.log(`val : ${val}`); // undefined
 
-obj = { value:100 };
+obj = { value: 100 };
 val = obj?.value;
 console.log(`val : ${val}`); // 100
 
+const str = '';
 
-var str = ''; 
-
-var len1 = str?.length;
+const len1 = str?.length;
 console.log(`len1 : ${len1}`); // 0
 
-var len2 = str && str.length;
+const len2 = str && str.length;
 console.log(`len2 : ${len2}`); // ''
