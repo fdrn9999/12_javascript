@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>attribute-and-property</title>
+</head>
+<body>
+  <h1>HTML Attribute 와 DOM Property</h1>
+  
+  <pre>
+    HTML Attribute : HTML 요소의 초기 상태를 지정하며 변하지 않는다.
+    DOM Property : 사용자가 입력한 최신 상태를 관리한다.
+    사용자의 입력에 의한 상태 변화에 반응하여 언제나 최신 상태를 관리한다.
+  </pre>
+  
+  <label for="username">유저명</label>
+  <input type="text" id="username" value="user01">
+  <label for="nickname">닉네임</label>
+  <input type="text" id="nickname" value="JSMaster">
+  
+  <script>
+    const $username = document.querySelector("#username");
+    
+    // input태그에 입력이 감지 되었을 때(oninput)
+    // 대입되어있는 함수(화살표 함수) 코드를 수행 (-> JS 이벤트)
+    $username.oninput = () => {
+      console.log('value Attribute : ', $username.getAttribute('value'));
+      console.log('value Property :  ', $username.value);
+    }
+
+
+    const $nickname = document.querySelector("#nickname");
+    
+    console.log("nickname의 value Attribute : ", $nickname.getAttribute("value"));
+    console.log("nickname의 value Property : ", $nickname.value);
+    
+    $nickname.value = 'JSBeginner';
+
+    console.log("-----------")
+    console.log("nickname의 value Attribute : ", $nickname.getAttribute("value"));
+    console.log("nickname의 value Property : ", $nickname.value);
+    
+    // value는 사용자 입력에 따라서 변할 수 있는 속성이기 때문에
+    // Attribute, Property가 별도로 관리됨
+
+    console.log("@@@@@@");
+    console.log("nickname의 id Attribute : ", $nickname.getAttribute("id"));
+    console.log("nickname의 id Property : ", $nickname.id);
+    
+    $nickname.id = "nick"; // id 프로퍼티 수정
+
+    console.log("@@@@@@");
+    console.log("nickname의 id Attribute : ", $nickname.getAttribute("id"));
+    console.log("nickname의 id Property : ", $nickname.id);
+
+    // id는 사용자 입력에 따라서 변할 수 있는 속성이 "아니기 때문에"
+    // Attribute, Property가 항상 동일한 값으로 관리된다.
+  </script>
+  
+  
+  <hr>
+  <hr>
+  
+  <pre>
+    getAttribute 메서드로 취득한 어트리뷰트 값은 언제나 문자열이다.
+    DOM 프로퍼티로 취득한 최신 상태 값은 문자열이 아닐 수도 있다.
+  </pre>
+  
+  <label for="check">확인</label>
+  <input type="checkbox" id="check" checked="checked">
+  
+  <script>
+    const $checkbox = document.querySelector('input[type=checkbox]');
+    console.log($checkbox.getAttribute('checked'));
+    console.log($checkbox.checked);
+  </script>
+  
+  
+</body>
+</html>

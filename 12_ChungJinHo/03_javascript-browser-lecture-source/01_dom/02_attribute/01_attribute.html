@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>attribute</title>
+</head>
+<body>
+  <pre>
+    Element.prototype.attributes
+    - 프로퍼티로 모든 어트리뷰트 노드를 취득할 수 있다.
+    - getter만 존재하는 읽기 전용 접근자로 NamedNodeMap을 반환한다.
+  </pre>
+  
+  <label for="username">유저명</label>
+  <input type="text" id="username" name="username" value="user01">
+  <!--
+    input 요소의 value 속성
+     - input의 입력되는 값이 저장되는 속성
+     - 값을 대입해두면 화면에 값이 표시됨(기본 값)
+  -->
+  
+  
+  <script>
+    const attributes = document.querySelector("#username").attributes;
+    console.log(attributes);
+    console.log(attributes.type.value);
+    console.log(attributes.id.value);
+    console.log(attributes.name.value);
+    console.log(attributes.value.value);
+  </script>
+  
+  <hr>
+  
+  <pre>
+    Element.prototype.getAttribute/setAttribute
+    - attributes 프로퍼티를 통하지 않고 요소 노드에서
+      메서드를 통해 직접 HTML 어트리뷰트 값을 취득하거나 변경할 수 있다.
+  </pre>
+  
+  <script>
+    const $input = document.querySelector("#username");
+    const inputValue = $input.getAttribute("value"); // "user01"
+    console.log("inputValue : ", inputValue);
+    
+    /* $input의 value 속성 값 변경*/
+    $input.setAttribute("value", "user022222");
+  </script>
+  
+  
+  
+  <pre>
+    Element.prototype.hasAttribute : 특정 HTML 속성의 존재 여부 확인
+    Element.prototype.removeAttribute : 특정 HTML 속성의 존재 삭제
+  </pre>
+  <script>
+    console.log('hasAttribute >>', $input.hasAttribute('type'));
+    console.log('hasAttribute >>', $input.hasAttribute('style'));
+
+    if($input.hasAttribute('value')) {
+      $input.removeAttribute('value');
+    }
+  </script>
+  
+  
+</body>
+</html>

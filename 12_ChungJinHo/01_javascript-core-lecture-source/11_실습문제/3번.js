@@ -12,7 +12,7 @@
 let numbers = [20, 100, 37, 54, 88, 9];
 let strings = ['wow', 'js', 'party', 'hello'];
 
-console.log(numbers.sort((a, b) => a - b));
-console.log(numbers.sort((a, b) => b - a));
-console.log(strings.sort());
-console.log(strings.sort((a, b) => b.localeCompare(a)));
+console.log(numbers.sort((a, b) => a - b)); // 오름차순
+console.log(numbers.sort((a, b) => b - a)); // 내림차순
+console.log(strings.sort()); // 오름차순
+console.log(strings.sort((a, b) => b.localeCompare(a))); // 내림차순

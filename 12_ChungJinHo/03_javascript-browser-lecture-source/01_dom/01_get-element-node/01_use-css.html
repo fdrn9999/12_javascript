@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>use css</title>
+</head>
+<body>
+  
+  <h1>CSS 선택자를 이용한 요소(Element) 노드 취득</h1>
+  <pre>
+    Document.prototype.querySelector("CSS선택자") /
+    Element.prototype.querySelector("CSS선택자")
+    
+    : 인자로 전달된 CSS 선택자를 만족하는 첫 번째 요소 노드를 탐색하여
+      반환한다.
+  </pre>
+  
+  <div class="area">
+    <p>first</p>
+  </div>
+  
+  <div class="area">
+    <p>second</p>
+  </div>
+  
+  
+  <hr>
+  <hr>
+  
+  <pre>
+    Document.prototype.querySelectorAll("CSS선택자") /
+    Element.prototype.querySelectorAll("CSS선택자")
+    
+    : 인자로 전달된 CSS 선택자를 만족하는 모든 요소 노드를 탐색하여
+      NodeList 객체(유사 배열)를 반환한다.
+  </pre>
+  
+  <ul id="list">
+    <li class="drink">커피</li>
+    <li class="drink">콜라</li>
+    <li class="food">피자</li>
+    <li class="food">햄버거</li>
+  </ul>
+  
+  
+  
+  
+  
+  
+  <script>
+    /* script 태그
+    * - JS 코드를 작성할 수 있는 영역
+    * */
+    console.log("script 태그에 작성된 내용");
+  </script>
+  
+  <script src="01_use-css.js"></script>
+</body>
+</html>
