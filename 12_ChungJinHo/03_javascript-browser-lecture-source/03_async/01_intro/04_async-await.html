@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>async / await</title>
+</head>
+<body>
+  <pre>
+    async / await 키워드
+    - ES8에 추가
+    - Promise 객체를 쉽게 사용하기 위해 추가된 키워드
+    
+    * async :
+      - 비동기 코드가 포함된 함수 선언부 앞에 작성하는 키워드
+    
+    * await :
+      - 비동기 함수 호출부 앞에 작성하는 키워드
+      - async가 선언된 함수 내부에만 작성 가능
+      - 해당 키워드가 작성된 함수 호출부의 비동기 결과가 돌아올 때 까지 대기
+        --> 동기 작업처럼 처리
+    
+  </pre>
+  
+  <script>
+    function increase(number) {
+      /* resolve : 성공 시 호출할 함수, reject : 실패 시 호출할 함수 */
+      const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const result = number + 10;
+          // 실패 시에는 에러 객체를 반환
+          if (result > 30) {
+            const e = new Error('Number Too Big');
+            return reject(e);
+          }
+          // 성공 시에는 연산된 결과를 반환
+          resolve(result);
+        }, 1000);
+      });
+      return promise;
+    }
+
+    async function run(){
+      try{
+        // await 키워드가 붙은 자리에서 비동기 결과가 돌아오길 대기
+        // -> 결과(promise -> resolve()) 가 돌아오면
+        //    resolve() 값만 반환
+        let result = await increase(0);
+        console.log(result);
+
+        result = await increase(result);
+        console.log(result);
+        
+        result = await increase(result);
+        console.log(result);
+        
+        result = await increase(result);
+        console.log(result);
+        
+      }catch (e) {
+        console.log(e);
+      }
+    }
+
+    run();
+  </script>
+
+</body>
+</html>

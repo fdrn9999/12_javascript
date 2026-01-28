@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_data-attribute-and-dataset-property</title>
+</head>
+<body>
+  <h1>data attribute & dataset property</h1>
+  <p>
+    data attribute : HTML에 정의한 사용자 정의 어트리뷰트
+    dataset property : 자바스크립트 코드로 접근할 때의 방법
+  </p>
+  <ul class="boardlist">
+    <li data-board-id="13" data-category-id="1">망원 맛집 추천 부탁!</li>
+    <li data-board-id="12" data-category-id="2">러닝 크루 한강에서 달릴 분 구함</li>
+    <li data-board-id="11" data-category-id="3">요즘 재태크 어떻게 하시나여~</li>
+  </ul>
+  
+  <script>
+    const boardList
+        = Array.from(document.querySelector('.boardlist').children);
+    
+    boardList.forEach(board => console.log(board.dataset));
+    
+    // boardId가 12인 요소 취득
+    const board = boardList.find(board => board.dataset.boardId === '12');
+    console.log(board);
+
+    // data 속성 변경
+    board.dataset.categoryId = '4';
+
+    // 새로운 data 속성 추가
+    board.dataset.boardWriter = '홍길동';
+    
+  </script>
+  
+</body>
+</html>

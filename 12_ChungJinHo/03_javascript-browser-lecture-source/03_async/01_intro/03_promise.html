@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>promise</title>
+</head>
+<body>
+  <pre>
+    Promise 객체
+    
+    - ES6에서 추가된 객체
+    - 콜백 지옥을 해결하기 위해 등장
+    - 비동기 코드가 실행된 후에 결과가 돌아올 것임을 약속하는 객체
+    - 비동기 상태를 성공(resolve), 실패(reject)로 관리 가능함
+    - then() / catch()를 이용한 메서드 체이닝 코드도 작성 가능
+  </pre>
+  
+  <script>
+    /* promise 확인 */
+    const promise = new Promise((resolve, reject) => {
+      console.log("비동기 작업");
+    });
+    
+    console.log(promise);
+    
+    /* promise 활용 */
+    function increase(number){
+      
+      const promise = new Promise((resolve, reject) => {
+        
+        setTimeout(() => {
+          const result = number + 10;
+          
+          if(result > 30){ // 실패한 경우
+            const e = new Error('Number Too Big');
+            return reject(e); // 비동기 실패를 뜻함
+          }
+          
+          // 성공한 경우 result 연산 결과 반환
+          resolve(result);
+        }, 2000);
+      });
+      
+      return promise;
+    }
+    
+    console.log(increase(0));
+    //console.log(increase(100));
+    
+    
+    /* promise를 이용한 콜백 지옥 탈출 */
+    // then() , catch() 메서드 활용
+    // - then() 메서드 : 비동기 동작이 성공한 후의 동작을 지정하는 메서드
+    // - catch() 메서드 : 비동기 동작이 실패한 후의 동작을 지정하는 메서드
+    increase(0)
+        .then(number => {
+          // 매개 변수 number == promise 성공 결과 == resolve() 반환 값
+          console.log("number : " ,number);
+          return increase(number); // Promise 객체 반환
+        })
+        .then(number => {
+          // 매개 변수 number == promise 성공 결과 == resolve() 반환 값
+          console.log("number : " ,number);
+          return increase(number);
+        })
+        .then(number => {
+          // 매개 변수 number == promise 성공 결과 == resolve() 반환 값
+          console.log("number : " ,number);
+          return increase(number);
+        })
+        .catch( e => {
+          // 비동기 실패 시 catch 수행
+          // 매개 변수 e : reject()로 반환된 Error 객체
+          console.log(e);
+        });
+    
+    
+  
+  </script>
+</body>
+</html>

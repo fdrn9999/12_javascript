@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 소개</title>
+</head>
+<body>
+    <script>
+        function sayHello() {
+            console.log('Hello World!!!');
+        }
+
+        // sayHello();
+
+        // 3000ms 후에 sayHello 함수를 수행 -> 비동기
+        setTimeout(sayHello, 3000);
+        
+        console.log('test1');
+        console.log('test2');
+        console.log('test3');
+    </script>
+    
+</body>
+</html>

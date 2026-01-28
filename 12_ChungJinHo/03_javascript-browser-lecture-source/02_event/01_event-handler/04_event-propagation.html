@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_event-propagation</title>
+  <style>
+    ul {
+      background: lightgray;
+    }
+    li {
+      background: lightblue;
+    }
+
+    .div-test {
+      border: 1px solid black;
+      padding: 20px;
+    }
+    .div1 {
+      background: red;
+    }
+    .div2 {
+      background: orange;
+    }
+    .div3 {
+      background: yellow;
+    }
+    .div4 {
+      background: green;
+    }
+  </style>
+</head>
+<body>
+  
+  <div onclick="test1('1번 div')" class="div-test div1">
+    <div onclick="test1('2번 div')" class="div-test div2">
+      <div onclick="test1('3번 div')" class="div-test div3">
+        <div onclick="test1('4번 div')" class="div-test div4"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function test1(message, e){
+      // e 또는 event : 이벤트 객체
+      //     발생한 이벤트에 대한 정보 + 이벤트 동작 제어 프로퍼티를 제공
+      //
+      let event = e || window.event;
+      
+      //console.log(event);
+      console.log(message);
+      
+      /* 이벤트 전파 : 자식 요소에서 발생한 이벤트가 부모 요소로 전달되는 것 */
+      if(event.stopPropagation){ // 이벤트 객체 안에 stopPropagation 프로퍼티가 있는지 확인
+        event.stopPropagation();
+      }
+    }
+  </script>
+
+</body>
+</html>
