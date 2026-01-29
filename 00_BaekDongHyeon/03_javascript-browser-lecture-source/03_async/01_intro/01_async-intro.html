@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>비동기 소개</title>
+</head>
+<body>
+  <script>
+    function sayHello(){
+      console.log("Hello World!!!");
+    }
+    
+    // sayHello();
+    
+    // 3000ms 후에 sayHello 함수를 수행 -> 비동기
+    // -> 코드가 위에서 아래로 해석 되지만
+    // 비동기 코드는 실행하라고 호출만 하고
+    // 다음으로 넘어감.
+    // -> 비동기 코드는 3초 후에 Hello World 출력함
+    setTimeout(sayHello, 3000);
+    
+    console.log("test1");
+    console.log("test2");
+    console.log("test3");
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>className-and-classList</title>
+  <style>
+    
+    .area {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+    .circle {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+    .lightgray {
+      background: lightgray;
+    }
+
+    .yellow {
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>className and classList</h1>
+  <p>
+    class어트리뷰트에 대응하는 DOM프로퍼티는 class가 아니라
+    className과 classList이다.
+  </p>
+  <div class="area"></div>
+  
+  <script>
+    const $area = document.querySelector(".area");
+    
+    console.log($area.className); // class 속성 값
+    console.log($area.classList); // class 속성 값 목록
+
+    // className을 이용해서 대입하면
+    // 이전 class 속성 값을 "덮어쓰기" 한다
+    $area.className = 'circle';
+    //$area.className = 'yellow';
+    
+    // 기존 class 목록에서 추가, 제거를 원하면
+    // classList를 사용
+    $area.classList.add('yellow');
+    $area.classList.add('lightgray');
+
+    $area.classList.remove('yellow');
+    
+    console.log($area.classList.item(0));
+    console.log($area.classList.item(1));
+    
+    /* 클래스가 포함되어 있는지 검사 */
+    console.log($area.classList.contains('circle'));
+    console.log($area.classList.contains('yellow'));
+    
+    /* add , remove를 번갈아 가며 수행하는 toggle */
+    $area.classList.toggle('yellow'); // add
+    $area.classList.toggle('yellow'); // remove
+    
+  </script>
+
+</body>
+</html>

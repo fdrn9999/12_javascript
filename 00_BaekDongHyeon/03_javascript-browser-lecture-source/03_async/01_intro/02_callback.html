@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>callback</title>
+</head>
+<body>
+  <script>
+    function login(username, callback){
+      // 지정된 시간(1000ms) 후에 함수 수행 -> 비동기
+      setTimeout(()=>{
+        callback(username);
+      }, 1000);
+    }
+    
+    // login 호출
+    login('홍길동', (username) => {
+      console.log(`${username}님 안녕하세요.`);
+    });
+
+
+    // 장바구니에 넣기
+    function addCart(product, callback) {
+      setTimeout(() => {
+        callback(product);
+      }, 1000);
+    }
+
+    addCart("얼음과자", product => {
+      console.log(`${product}를 장바구니에 넣었습니다.`);
+    });
+
+
+    // 결제하기
+    function payment(cardNumber, product, callback){
+      setTimeout(() => {
+        callback(cardNumber, product);
+      }, 1000);
+    }
+
+    payment('1112223334445', "얼음과자", (cardNumber, product) => {
+      console.log(`${cardNumber.slice(0,6)}로 ${product}를 구매했습니다.`);
+    });
+    
+    
+    /* 콜백 함수를 이용해서 비동기 코드를 동기식으로 동작 */
+    login('홍길동', (username) => {
+      console.log(`${username}님 안녕하세요.`);
+
+      addCart("얼음과자", product => {
+        console.log(`${product}를 장바구니에 넣었습니다.`);
+
+        payment('1112223334445', "얼음과자", (cardNumber, product) => {
+          console.log(`${cardNumber.slice(0,6)}로 ${product}를 구매했습니다.`);
+        });
+      });
+    });
+  
+    
+    /* 콜백 지옥 */
+    function increase(number, callback){
+      setTimeout(()=>{
+        const result = number + 10;
+        
+        if(callback){ // 전달 받은 callback 함수가 있다면
+          callback(result);
+        }
+      }, 1000);
+    }
+    
+    increase(0, result => {
+      console.log("result : ", result);
+
+      increase(result, result => {
+        console.log("result : ", result);
+
+        increase(result, result => {
+          console.log("result : ", result);
+
+        });
+      });
+    });
+    
+    
+    
+    
+  </script>
+</body>
+</html>

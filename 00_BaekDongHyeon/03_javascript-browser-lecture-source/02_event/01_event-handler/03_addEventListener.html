@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h1>addEventListener</h1>
+  <p>
+    EventTarget.prototype.addEventListener('eventType', functionName [, useCapture])
+    : 첫 번째 매개변수는 이벤트 타입 명칭, 두 번째 매개변수는 이벤트 핸들러 함수,
+    세 번째 매개변수는 이벤트 전파 단계(캡쳐링 or 버블링)를 지정한다.
+  </p>
+  <button id="btn">클릭해보세요</button>
+  
+  <script>
+    const $btn = document.querySelector("#btn");
+    
+    $btn.addEventListener("click", () => {
+      alert("클릭 성공!!");
+    });
+
+    $btn.addEventListener("click", () => {
+      alert("이것도 실행 될까??");
+    });
+
+    
+    // 참조가 동일한 이벤트 핸들러 함수를 중복해서 등록하더라도 하나의 핸들러만 등록된다.
+    const handlerMouseover = () => console.log('button mouseover!!!');
+    $btn.addEventListener('mouseover', handlerMouseover);
+    $btn.addEventListener('mouseover', handlerMouseover);
+    
+  </script>
+  
+</body>
+</html>

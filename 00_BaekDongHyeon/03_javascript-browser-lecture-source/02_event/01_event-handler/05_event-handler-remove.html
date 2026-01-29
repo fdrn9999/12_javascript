@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>removeEventListener</title>
+</head>
+<body>
+  <h1>이벤트 핸들러 제거</h1>
+  <p>
+    EventTarget.prototype.removeEventListener :
+    addEventListener메소드로 등록한 이벤트 핸들러를 제거하는 함수
+  </p>
+  <button id="btn">클릭해보세요</button>
+  
+  <script>
+    const $btn = document.querySelector("#btn");
+    
+    // 이벤트 핸들러용 함수 정의
+    const handlerClick = () => alert("클릭함");
+    
+    $btn.addEventListener("click", handlerClick);
+    $btn.removeEventListener("click", handlerClick);
+  </script>
+  
+  
+  <button id="btn2">더블 클릭해보세요</button>
+  <script>
+    const $btn2 = document.querySelector("#btn2");
+    
+    const handleDbClick = () => alert("더블 클릭 함");
+    
+    // 이벤트 프로퍼티를 이용해서 이벤트 핸들러 등록
+    $btn2.ondblclick = handleDbClick; // 함수 대입
+    
+    // 이벤트 프로퍼티로 등록된 핸들러는
+    // removeEventListener로 제거 불가
+    $btn2.removeEventListener("dbclick", handleDbClick);
+    
+    // 대신 null을 대입하여 핸들러를 없애는 것이 가능
+    $btn2.ondblclick = null;
+  </script>
+  
+</body>
+</html>
